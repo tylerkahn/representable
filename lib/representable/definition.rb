@@ -40,7 +40,7 @@ module Representable
     end
     
     def from
-      (options[:from] || name).to_s
+      (options[:from] || @name).to_s
     end
     
     def default_for(value)
