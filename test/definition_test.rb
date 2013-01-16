@@ -31,12 +31,24 @@ class DefinitionTest < MiniTest::Spec
       end
     end
     
-    it "responds to #getter and returns string" do
-      assert_equal "songs", @def.getter
+    describe '#getter' do
+      it "returns the name" do
+        assert_equal "songs", @def.getter
+      end
+
+      it "returns the new name when :name is redefined" do
+        assert_equal "tracks", Representable::Definition.new(:songs, :name => :tracks).getter
+      end
     end
     
-    it "responds to #name" do
-      assert_equal "songs", @def.name 
+    describe "#name" do
+      it "returns the :name" do
+        assert_equal "songs", @def.name
+      end
+
+      it "allows redefinition of name" do
+        assert_equal "tracks", Representable::Definition.new(:songs, :name => :tracks).name
+      end
     end
     
     it "responds to #setter" do
