@@ -67,5 +67,9 @@ module Representable
     def default
       options[:default]
     end
+
+    def proc
+      options[:proc]
+    end
   end
 end
